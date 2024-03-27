@@ -1,8 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+// 1.import useContext
+// 2. import Context
+//3. ejecutar el contexto = const { store, actions } = useContext(Context);
+
+import React, { useState, useEffect, useContext } from "react"; //useEffect para que se ejecute el componente nada más cargarse
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
-import {Link} from "react-router-dom";
+import {Link} from "react-router-dom"; 
 
 
 export const Home = () => {
