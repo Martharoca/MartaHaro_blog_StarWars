@@ -2,58 +2,76 @@
 // 2. import Context
 //3. ejecutar el contexto = const { store, actions } = useContext(Context);
 
-import React, { useState, useEffect, useContext } from "react"; //useEffect para que se ejecute el componente nada más cargarse
-import rigoImage from "../../img/rigo-baby.jpg";
-import "../../styles/home.css";
-import { Context } from "../store/appContext";
-import {Link} from "react-router-dom"; 
+import React, { useEffect, useState, useContext } from "react";
+import { Context } from "../store/appContext.js";
+import "../../styles/index.css";
 
+import { CardCharacter } from "../component/cardcharacter.jsx";
+import { CardPlanets } from "../component/cardplanets.jsx";
+import { CardVehicles } from "../component/cardvehicles.jsx";
 
 export const Home = () => {
-	const { store, actions } = useContext(Context);
 
-	useEffect( () => {
-		actions.getAllCharacters()
-		actions.getVehicles()
-		actions.getPlanets()
+	const { store, actions } = useContext(Context)
+
+	useEffect(() => {
+		actions.getCharacter(),
+			actions.getPlanets(),
+			actions.getVehicles(),
+			actions.getInfo()
 	}, [])
-    //console.log(store.people);
-
 
 
 	return (
-		<><div className="">
-			<div className="px-5 pt-3">
-				<h1> Characters</h1>
-			</div>
-		</div><div className="d-flex gap-0 column-gap-3 overflow-auto">
-				{store.people.map((item) => (
-					<div className="col p-5" key={item.uid}>
-						<div className="card p-2 g-col-6" style={{ width: "250px" }}>
-							<img src={`https://starwars-visualguide.com/assets/img/characters/${item.uid}.jpg`} className="card-img-top" alt="..." />
-							<div className="card-body p-7">
-								<h5 className="card-title text-center">{item.name}</h5>
-								{/*<p>{store.detallespersonaje.gender}</p> */}
-								<Link className='btn btn-outline-info mx-2' to={`/detailview/people/${item.uid}`}>Learn more!</Link>
-								<button className='btn btn-outline-warning'
-									onClick={() => {
-										let name = item.name;
-										actions.setFavorites(name);
-									} }
-								><i class="fa fa-heart"></i></button>
-							</div>
-						</div>
-					</div>))}
-			</div></>
-	// <div className="text-center mt-5">
-	// 	<h1>Hello Rigo!</h1>
-	// 	<p>
-	// 		<img src={rigoImage} />
-	// 	</p>
-	// 	<a href="#" className="btn btn-success">
-	// 		If you see this green button, bootstrap is working
-	// 	</a>
-	// </div>
-	);
-	};
+		<div className="home">
+			<h2 className="tittles text-danger ms-5">Characters</h2>
+			<div className="cards d-flex mx-4" style={{ overflowX: "scroll" }}>
+				{store.peoples.map((people) => {
+					return (
+						<div className="text m-3" key={people.uid}>
 
+							<CardCharacter people={people}
+								name={people.name}
+
+							/>
+
+						</div>
+					);
+				})}
+			</div>
+
+			<h2 className="tittles text-danger mt-3 ms-5">Planets</h2>
+			<div className="cards d-flex mx-4" style={{ overflowX: "scroll" }}>
+				{store.planets.map((planet) => {
+					return (
+						<div className="text m-3" key={planet.uid}>
+
+							<CardPlanets planets={planet}
+								name={planet.name}
+
+							/>
+
+						</div>
+					);
+				})}
+			</div>
+
+			<h2 className="tittles text-danger mt-3 ms-5">Vehicles</h2>
+			<div className="cards d-flex mx-4" style={{ overflowX: "scroll" }}>
+				{store.vehicles.map((vehicle) => {
+					return (
+						<div className="text m-3" key={vehicle.uid}>
+
+							<CardVehicles vehicles={vehicle}
+								name={vehicle.name}
+
+							/>
+
+						</div>
+					);
+				})}
+			</div>
+
+		</div>
+	)
+};

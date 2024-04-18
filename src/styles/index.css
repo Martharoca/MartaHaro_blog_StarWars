@@ -1,6 +1,50 @@
 /* 
     General Styles
 */
+.home {
+    background-color: rgba(31, 30, 30, 0.184);
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
 .width-img{
     width: 100px;
 }
+
+.dropdown-menu[data-bs-popper] {
+    /* top: 100%; */
+    left: -2px;
+    /* margin-top: 0.125rem; */
+}
+
+.logo {
+    width: 120px;
+    margin-left: 100px;
+    /* filter: drop-shadow(
+        1px 1px 1px rgba(0, 0, 0, .9) */
+    /* ); */
+}
+
+.favorites {
+    margin-right: 70px;
+}
+
+.img-left {
+    width: 350px;
+    height: 350px;
+    /* padding-bottom: 40px;
+    padding-right: 50px; */
+    margin-left: 0px;
+    margin-top: 15px;
+}
+.tittle-bottom {
+    border-top: 1px solid rgb(183, 104, 104);
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 20px;
+}
+.jumbotron {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+

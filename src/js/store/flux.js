@@ -1,77 +1,78 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			people:[],
-			vehicles: [],
+			favorites: [],
+			peoples: [],
 			planets: [],
-			detalles: {}, //de la función obtenerDetalles
-			planet: {},
-			vehicle: {},
+			vehicles: [],
+			info: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			getAllCharacters: () => {
-				fetch("https://www.swapi.tech/api/people/")
-					.then((res) => res.json())
-					.then((data) => setStore({ people: data.results }))
-					.catch(error => console.error(error))
-			},
-			getVehicles: () => {
-                fetch("https://www.swapi.tech/api/vehicles/")
-                    .then(res => res.json())
-                    .then(data => setStore({ vehicles: data.results }))
-                    .catch(error => console.error(error))
-            },
-			getVehicle:(url) => {  
-				fetch(url) 
-				.then(res=>res.json())
-				.then(data => setStore({vehicle: data.results}))
-				.catch(error => console.error(error))
-				
+			getCharacter: () => {
+				fetch("https://www.swapi.tech/api/people/", {
+					method: 'GET'
+				})
+					.then(res => res.json())
+					.then(data => setStore({ peoples: data.results }))
+					.catch(err => console.error(err))
+
 			},
 			getPlanets: () => {
-                fetch("https://www.swapi.tech/api/planets/")
-                    .then(res => res.json())
-                    .then(data => setStore({ planets: data.results }))
-                    .catch(error => console.error(error))
-            },
-			getPlanet:(url) => { 
-				fetch(url) 
-				.then(res=>res.json())
-				.then(data => setStore({planet: data.results}))
-				.catch(error => console.error(error))
-				
+				fetch("https://www.swapi.tech/api/planets/", {
+					method: 'GET'
+				})
+					.then(res => res.json())
+					.then(data => setStore({ planets: data.results }))
+					.catch(err => console.error(err))
+
 			},
+			getVehicles: () => {
+				fetch("https://www.swapi.tech/api/vehicles/", {
+					method: 'GET'
+				})
+					.then(res => res.json())
+					.then(data => setStore({ vehicles: data.results }))
+					.catch(err => console.error(err))
 
-			getDetalles:(url) => {  //desarrollar esta función
-				fetch(url) //debo concatenar la url con una id para que me de detalles de esa id en concreto
-				.then(res=>res.json())
-				.then(data => setStore({detalles: data.results}))
-				.catch(error => console.error(error))
-				
 			},
+			getInfo: (type, id) => {
+				const requestOptions = {
+					method: "GET",
+					redirect: "follow"
+				};
 
-			loadSomeData: () => {
-					// // fetch().then().then(data => setStore({ "foo": data.bar }))
+				fetch(`https://www.swapi.tech/api/${type}/` + id, requestOptions)
+					.then((response) => response.json())
+					.then((result) => setStore({ info: result.result }))
+					.catch((error) => console.error(error));
 			},
-			changeColor: (index, color) => {
-				//get the store
-				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
-		 }
+			addFavorite: (favorite) => {
+					const store = getStore();
+					const newArray= store.favorites.concat(favorite)
+					setStore({ favorites: newArray })
+		 	},
+			deleteFavorite: (name) => {
+				const arrayfiltered = getStore().favorites.filter((item, index) => item !== name)
+				// console.log(arrayfiltered);
+				setStore({ favorites: arrayfiltered })
+		 	},
+			favoriteList: (name) => {
+				const listNames = getStore().favorites
+				if (listNames.length == 0) {
+					getActions().addFavorite(name)
+				} else {
+					if (listNames.includes(name)) {
+						getActions().deleteFavorite(name)
+					} else {
+						getActions().addFavorite(name)
+					}
+				}
+		 	}
+		}
 	};
 };
 
