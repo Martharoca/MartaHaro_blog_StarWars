@@ -2,23 +2,23 @@
     General Styles
 */
 .home {
-    background-color: rgba(31, 30, 30, 0.184);
-    margin-left: 100px;
-    margin-right: 100px;
+   /* background-color: rgba(31, 30, 30, 0.184); */
+   background-image: url('https://st4.depositphotos.com/8127772/38124/v/600/depositphotos_381243200-stock-illustration-star-sky-space-stars-background.jpg');
+    /* margin-left: auto;
+    margin-right: auto; */
 }
+
 
 .width-img{
     width: 100px;
 }
 
 .dropdown-menu[data-bs-popper] {
-    /* top: 100%; */
     left: -2px;
-    /* margin-top: 0.125rem; */
 }
 
 .logo {
-    width: 120px;
+    width: 150px;
     margin-left: 100px;
     /* filter: drop-shadow(
         1px 1px 1px rgba(0, 0, 0, .9) */
@@ -37,14 +37,17 @@
     margin-left: 0px;
     margin-top: 15px;
 }
+
+
 .tittle-bottom {
-    border-top: 1px solid rgb(183, 104, 104);
+    border-top: 1px solid rgb(220, 143, 29);
     margin-left: 60px;
     margin-right: 60px;
     margin-top: 20px;
 }
 .jumbotron {
-    margin-left: 100px;
-    margin-right: 100px;
+    background-image: url('https://st4.depositphotos.com/8127772/38124/v/600/depositphotos_381243200-stock-illustration-star-sky-space-stars-background.jpg');
+    /* margin-left: 100px;
+    margin-right: 100px; */
 }
 

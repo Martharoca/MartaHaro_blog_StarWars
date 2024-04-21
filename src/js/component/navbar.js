@@ -34,31 +34,3 @@ export const Navbar = () => {
 		</nav>
 	);
 };
-
-
-
-
-
-
-
-
-// export const Navbar = () => {
-// 		const {store, actions} = useContext(Context)
-// 	return (
-// 		<nav className="navbar bg-black">
-// 		<div className="container-fluid">
-// 			<Link to="/">
-// 				<a className="navbar-brand"></a>
-// 				<img className="width-img" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Star_Wars_Logo.svg"></img>
-// 			</Link>
-// 			<Link className="btn btn-outline-success rounded-pill px-4" to="/signin">
-// 				Login
-// 			</Link>
-// 			<div className="ml-auto">
-// 				<div className="dropdown">
-// 				</div>
-// 			</div>
-// 		</div>
-// 	</nav>
-// );
-// };

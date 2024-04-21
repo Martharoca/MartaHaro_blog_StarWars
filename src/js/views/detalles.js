@@ -29,13 +29,13 @@ export const Detalles = () => {
             <div className="jumbotron">
                 <div className="tittle-top d-flex justify-content-evenly">
                     <img src={type == "planets" && params.uid == "1" ? "https://static.wikia.nocookie.net/esstarwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131214162357" : `https://starwars-visualguide.com/assets/img/${type}/${params.uid}.jpg`} className="img-left" alt="image" />
-                    <div className="detalles-personaje d-block justify-content-center text-center">
+                    <div className="detalles-personaje d-block justify-content-center text-warning text-center">
                         <h1 className="titulo-nombre">{store.info?.properties?.name}</h1>
                         <h4 className="description">{store.info?.description}</h4>
                     </div>
                 </div>
                 <div className="tittle-bottom">
-                    <div className="d-flex justify-content-around text-center text-danger mt-4">
+                    <div className="d-flex justify-content-around text-center text-warning mt-4">
                         <div className="name-body d-block">
                             <h5 className="name-title">Name</h5>
                             <p className="name-text">{store.info?.properties?.name}</p>
