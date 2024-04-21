@@ -2,10 +2,7 @@
     General Styles
 */
 .home {
-   /* background-color: rgba(31, 30, 30, 0.184); */
    background-image: url('https://st4.depositphotos.com/8127772/38124/v/600/depositphotos_381243200-stock-illustration-star-sky-space-stars-background.jpg');
-    /* margin-left: auto;
-    margin-right: auto; */
 }
 
 
@@ -20,9 +17,6 @@
 .logo {
     width: 150px;
     margin-left: 100px;
-    /* filter: drop-shadow(
-        1px 1px 1px rgba(0, 0, 0, .9) */
-    /* ); */
 }
 
 .favorites {
@@ -32,8 +26,6 @@
 .img-left {
     width: 350px;
     height: 350px;
-    /* padding-bottom: 40px;
-    padding-right: 50px; */
     margin-left: 0px;
     margin-top: 15px;
 }
@@ -47,7 +39,6 @@
 }
 .jumbotron {
     background-image: url('https://st4.depositphotos.com/8127772/38124/v/600/depositphotos_381243200-stock-illustration-star-sky-space-stars-background.jpg');
-    /* margin-left: 100px;
-    margin-right: 100px; */
+
 }
 
