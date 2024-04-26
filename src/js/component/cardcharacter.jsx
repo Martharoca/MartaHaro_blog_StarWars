@@ -19,9 +19,9 @@ export const CardCharacter = ({ people }) => {
         <img src={`https://starwars-visualguide.com/assets/img/characters/${people.uid}.jpg`} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-text">{people.name}</h5>
-          <p className="card-text">Gender: ... </p>
+          {/* <p className="card-text">Gender: ... </p>
           <p className="card-text">Hair color: ... </p>
-          <p className="card-text">Eye color: ... </p>
+          <p className="card-text">Eye color: ... </p> */}
           <Link to={"/detalles/people/" + people.uid}>
             <button href="#" className="btn btn-outline-primary me-5">Learn more!</button>
           </Link>

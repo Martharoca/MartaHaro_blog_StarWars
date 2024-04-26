@@ -20,8 +20,8 @@ export const CardVehicles = ({ vehicles }) => {
       <img src={`https://starwars-visualguide.com/assets/img/vehicles/${vehicles.uid}.jpg`} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-text">{vehicles.name}</h5>
-        <p className="card-text">Model: ... </p>
-        <p className="card-text">Vehicle class: ... </p>
+        {/* <p className="card-text">Model: ... </p>
+        <p className="card-text">Vehicle class: ... </p> */}
         <Link to={"/detalles/vehicles/" + vehicles.uid}>
           <button href="#" className="btn btn-outline-primary me-5">Learn more!</button>
         </Link>
