@@ -42,3 +42,22 @@
 
 }
 
+.contactForm {
+    width: auto;
+    margin: 20px;
+}
+
+.title {
+    display: flex;
+    color: orange;
+    justify-content: center;
+}
+
+.login {
+    width: 100%;
+}
+
+.favorites {
+    margin-left: 100px;
+    margin-right: 50px;
+}

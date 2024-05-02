@@ -1,11 +1,18 @@
-// import React,{useContext} from "react";
-// import { Link } from "react-router-dom";
-// import { Context } from "../store/appContext";
-// import { Card, } from "../component/cardpeople";
-// export const Login = (email,password) => {
-//     const{store,actions} = useContext (Context)
-//     console.log(email,password);
-//     return (
-//         <Card/>
-//     );
-// };
+import React,{useContext, useState} from "react";
+import { Context } from "../store/appContext";
+import { useNavigate} from "react-router-dom";
+import { LoginForm } from "../component/loginform.jsx";
+
+
+
+ export const Login = () => {
+
+     const {store, action}= useContext(Context)
+
+     return (
+        <div className="Login">
+            <LoginForm />
+        </div>
+     )
+ };
+   

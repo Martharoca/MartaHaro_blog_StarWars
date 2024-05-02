@@ -6,12 +6,10 @@ import { Link } from "react-router-dom";
 export const CardVehicles = ({ vehicles }) => {
 
   const { store, actions } = useContext(Context)
-  // console.log(vehicles);
 
   const addHeart = store.favorites.includes(vehicles.name)
 
   function addFavorites() {
-    // actions.addFavorite(vehicles.name)
     actions.favoriteList(vehicles.name)
   }
 

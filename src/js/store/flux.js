@@ -12,6 +12,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+			login: async (email, password, name) => {
+                try {
+                let response = await fetch("https://bookish-palm-tree-7v9wqgx6vwg6frpw9-3000.app.github.dev/login", {
+                    method: 'POST',
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+                    body: JSON.stringify({
+                        email:email,
+                        password:password,
+                        name:name,
+                    })  
+            })
+            let data = await response.json()
+            if (response.status === 200) {
+                localStorage.setItem("token", data.access_token);
+                return true;
+            }else{
+                return false
+            }
+            } catch (error) {
+                return false;
+            }
+        },
 			getCharacter: () => {
 				fetch("https://www.swapi.tech/api/people/", {
 					method: 'GET'
@@ -21,6 +45,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(err => console.error(err))
 
 			},
+			getFavorites: async () => {
+                let token = localStorage.getItem("token")
+                try{
+                    let response = await fetch("https://bookish-palm-tree-7v9wqgx6vwg6frpw9-3000.app.github.dev/users/favorites", {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type':'application/json',
+                            "Authorization": "Bearer "+token
+                        },
+                    })
+                    let data = await response.json()
+                    if (response.status === 200) {
+                        setStore({favorites:data.results})
+                    }else{
+                        return [];
+                    }
+                }catch (error) {
+                    return [];
+                }
+            },
 			getPlanets: () => {
 				fetch("https://www.swapi.tech/api/planets/", {
 					method: 'GET'
